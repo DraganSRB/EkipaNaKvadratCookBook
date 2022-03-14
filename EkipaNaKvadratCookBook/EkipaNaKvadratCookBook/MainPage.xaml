@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:EkipaNaKvadratCookBook.ViewModels"
+             x:Class="EkipaNaKvadratCookBook.MainPage"
+             x:DataType="viewmodels:MainViewModel">
+
+    <Grid Padding="40" 
+          BackgroundColor="AntiqueWhite">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+        <Label
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Text="Cookbook"
+            TextColor="Black"
+            
+            FontSize="32"
+            
+            
+            VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Center"
+            ></Label>
+        <ImageButton Source="Settings"
+                     Grid.Row="0"
+                     Grid.Column="3"
+                     BackgroundColor="Transparent"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center"
+                     Command="{Binding ClickedCommand}"
+                     />
+        <CollectionView 
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            SelectionMode="Single"
+            BackgroundColor="LightGreen"
+            SelectedItem="{Binding TypesOfRecipes}"
+            >
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="viewmodels:OneStringViewModel">
+                    <StackLayout Padding="20">
+                        <Label FontSize="35"                               
+                               LineBreakMode="NoWrap"
+                               Text="{Binding TypeName}"
+                               TextColor="White"
+                               MaxLines="1"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <CollectionView 
+            Grid.Row="1"
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            SelectionMode="Single"
+            BackgroundColor="LightGreen"
+            SelectedItem="{Binding TypesOfRecipes}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="viewmodels:OneStringViewModel">
+                    <StackLayout Padding="20">
+                        <Label FontSize="35"                               
+                               LineBreakMode="NoWrap"
+                               Text="{Binding TypeName}"
+                               TextColor="White"
+                               MaxLines="1"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+        <CollectionView 
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            SelectionMode="Single"
+            BackgroundColor="LightGreen"
+            SelectedItem="{Binding TypesOfRecipes}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="viewmodels:OneStringViewModel">
+                    <StackLayout Padding="20">
+                        <Label FontSize="35"                               
+                               LineBreakMode="NoWrap"
+                               Text="{Binding TypeName}"
+                               TextColor="White"
+                               MaxLines="1"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+</ContentPage>
